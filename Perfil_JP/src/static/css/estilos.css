@@ -8,23 +8,26 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
 }
 
 .header {
     text-align: center;
-    background-color: #fff;
-    border-radius: 4px 4px 0 0;
     margin-bottom: 20px;
     position: relative;
+    overflow: hidden; /* Oculta el desbordamiento de contenido en el banner */
 }
 
 .banner {
-    padding: 0%;
     width: 100%;
-    border-radius: 4px 4px 0 0;
+    transition: transform 0.3s; /* Agrega una transición suave al banner */
+}
+
+/* Agrega el efecto hover para el banner */
+.header:hover .banner {
+    transform: scale(1.05); /* Escala ligeramente el banner en hover */
 }
 
 h1 {
@@ -64,7 +67,7 @@ h1 {
 }
 
 .profile-image img{
-    max-width: 100%;
+    max-width: 70%;
     border-radius: 10%;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
