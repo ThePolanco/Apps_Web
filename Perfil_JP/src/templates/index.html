@@ -1,40 +1,58 @@
 {% extends "./layout.html" %}
 
 {% block titulo %}
-    Perfil de usuario
+    Jeison Polanco Montaño
 {% endblock %}
 
 {% block body %}
 <div class="container">
-    <div class="header">
-        <h1>Esta es la página del perfil de Jeison Polanco</h1>
-    </div>
-
-    <div class="profile-section">
-        <h2>Bienvenido! Soy {{info.nombre}}</h2>
-        <p class="profile-profession">Soy: {{info.profesion}} y me especializo en {{info.especialidad}}</p>
-        <p class="contact-info">
-            <span class="contact-label">Teléfono:</span>
-            {{info.telefono}}
-            <span class="contact-label">Correo:</span>
-            {{info.correo}}
-        </p>
-        <h2>Sección Imágenes</h2>
-        <div class="image-table">
-            <img class="profile-image" src="{{ url_for('static', filename='img/Imagen.jpg') }}" alt="Imagen">
-            <img class="profile-image" src="{{ url_for('static', filename='img/Imagen2.jpg') }}" alt="Imagen">
-            <img class="profile-image" src="{{ url_for('static', filename='img/Imagen3.jpg') }}" alt="Imagen">
-            <img class="profile-image" src="{{ url_for('static', filename='img/Imagen4.jpg') }}" alt="Imagen">
-            <img class="profile-image" src="{{ url_for('static', filename='img/Imagen5.jpg') }}" alt="Imagen">
-            <img class="profile-image" src="{{ url_for('static', filename='img/Imagen6.jpg') }}" alt="Imagen">
+    <header class="header">
+        <img class="banner" src="{{ url_for('static', filename='img/Banner.png') }}" alt="Banner">
+    </header>
+    <section class="profile-section">
+        <div class="profile-content">
+            <div class="profile-info">
+                <h2><i class="fas fa-user"></i> Bienvenido! Soy {{info.nombre}}</h2>
+                <p class="profile-profession">Soy: {{info.profesion}} y me especializo en {{info.especialidad}}</p>
+                <p>
+                <i class="fas fa-laptop-code"></i> Systems Engineer | <i class="fas fa-chart-bar"></i> Data Analyst | <i class="fab fa-python"></i> Python | <i class="fas fa-database"></i> SQL | <i class="fas fa-chart-line"></i> Statistics | <i class="fas fa-brain"></i> Machine Learning | <i class="fas fa-database"></i> Big Data Enthusiast
+                </p>
+                <hr>
+                <div class="contact-info">
+                    <span class="contact-label"><i class="fas fa-phone"></i> Teléfono:</span> {{info.telefono}}<br>
+                    <hr>
+                    <span class="contact-label"><i class="fas fa-envelope"></i> Correo:</span> {{info.correo}}<br>
+                    <hr>
+                    <span class="contact-label"><i class="fab fa-github"></i> GitHub:</span>
+                    <a class="link" href="https://github.com/ThePolanco" target="_blank">Perfil de GitHub</a><br>
+                    <hr>
+                    <span class="contact-label"><i class="fab fa-linkedin"></i> LinkedIn:</span>
+                    <a class="link" href="https://www.linkedin.com/in/jeisonpolanco/" target="_blank">Perfil de LinkedIn</a><br>
+                </div>
+            </div>
         </div>
-    </div>
+
+        <div class="profile-image">
+            <img src="{{ url_for('static', filename='img/Perfil_JP.jpg') }}" alt="Imagen de perfil">
+        </div>
+    </section>
+    <section>
+        <div class="profile-description">
+            <h2>Descripción</h2>
+            <p>
+                Soy estudiante de último semestre de Ingeniería de Sistemas enfocado en el análisis de datos. Me considero una persona altamente responsable y capaz de asumir retos, mejorando cada día y trabajando eficientemente en equipo. A lo largo de mi formación académica, he participado en diversos proyectos de desarrollo, lo que ha fortalecido mis habilidades como analista e ingeniero.
+            </p>
+            <p>
+                Mi objetivo como Ingeniero de Sistemas es ampliar mis conocimientos en el desarrollo web, programación y análisis de datos. Espero aplicar las experiencias adquiridas durante mi formación en el ámbito laboral, tanto para crecer profesionalmente como personalmente. Mi compromiso es mejorar la productividad del cargo que se me asigne en la empresa y contribuir con soluciones innovadoras.
+            </p>
+        </div>
+    </section>
 </div>
 {% endblock %}
 
 {% block footer %}
-    <div class="footer">
+    <footer class="footer">
         <p>Autor: Jeison Stiven Polanco Montaño</p>
         <p>Ubaté - 2023</p>
-    </div>
+    </footer>
 {% endblock %}
