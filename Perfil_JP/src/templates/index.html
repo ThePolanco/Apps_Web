@@ -1,0 +1,40 @@
+{% extends "./layout.html" %}
+
+{% block titulo %}
+    Perfil de usuario
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="header">
+        <h1>Esta es la página del perfil de Jeison Polanco</h1>
+    </div>
+
+    <div class="profile-section">
+        <h2>Bienvenido! Soy {{info.nombre}}</h2>
+        <p class="profile-profession">Soy: {{info.profesion}} y me especializo en {{info.especialidad}}</p>
+        <p class="contact-info">
+            <span class="contact-label">Teléfono:</span>
+            {{info.telefono}}
+            <span class="contact-label">Correo:</span>
+            {{info.correo}}
+        </p>
+        <h2>Sección Imágenes</h2>
+        <div class="image-table">
+            <img class="profile-image" src="{{ url_for('static', filename='img/Imagen.jpg') }}" alt="Imagen">
+            <img class="profile-image" src="{{ url_for('static', filename='img/Imagen2.jpg') }}" alt="Imagen">
+            <img class="profile-image" src="{{ url_for('static', filename='img/Imagen3.jpg') }}" alt="Imagen">
+            <img class="profile-image" src="{{ url_for('static', filename='img/Imagen4.jpg') }}" alt="Imagen">
+            <img class="profile-image" src="{{ url_for('static', filename='img/Imagen5.jpg') }}" alt="Imagen">
+            <img class="profile-image" src="{{ url_for('static', filename='img/Imagen6.jpg') }}" alt="Imagen">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+    <div class="footer">
+        <p>Autor: Jeison Stiven Polanco Montaño</p>
+        <p>Ubaté - 2023</p>
+    </div>
+{% endblock %}

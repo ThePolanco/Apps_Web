@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/estilos.css') }}">
+</head>
+<body>
+    {% block body %}
+    {% endblock %}
+
+    {% block seccion1 %}
+    {% endblock %}
+    
+    {% block seccion2 %}
+    {% endblock %}
+    <hr>
+    {% block footer %}
+    {% endblock %}
+</body>
+</html>
