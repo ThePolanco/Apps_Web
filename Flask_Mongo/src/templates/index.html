@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" tydive="text/css" href="static/css/estilo.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask with Mongo</title>
+</head>
+<body>
+    <h1>¡BIENVENIDO!</h1>
+
+    <form action = "/guardar_personas" method = "post">
+        <input type = "text" name = "id" placeholder = "ID">
+        <input type = "text" name = "nombre" placeholder = "Nombre">
+        <input type = "text" name = "apellido" placeholder = "Apellido">
+        <input type = "text" name = "edad" placeholder = "Edad">
+        <input type = "text" name = "telefono" placeholder = "Telefono">
+        <button class="guardar" type = "submit">Guardar</button>
+    </form>
+    <hr>
+    <h2>Personas Registradas</h2>
+    {% for persona in personas %}
+        <form class="registros" action="/editar_persona/{{ persona.id }}" method="post">
+            <input type="text" name="id" value="{{persona.id}}">
+            <input type="text" name="nombre" value="{{persona.nombre}}">
+            <input type="text" name="apellido" value="{{persona.apellido}}">
+            <input type="text" name="edad" value="{{persona.edad}}">
+            <input type="text" name="telefono" value="{{persona.telefono}}">
+            <button type="submit">Actualizar</button>
+            <a href = "{{ url_for('eliminar', id_persona = persona.id) }}" 
+                        onclick = "return confirm('¿Esta seguro que desea eliminar el documento {{persona.nombre}}?')">Eliminar</a>
+            <hr>
+        </form>
+        <hr>
+    {% endfor %}
+    <h2>Personas Registradas Mayores de 18 años</h2>
+    {% for persona in personas_mayores %}
+        <form class="registros" action="/editar_persona/{{ persona.id }}" method="post">
+            <input type="text" name="id" value="{{persona.id}}" readonly>
+            <input type="text" name="nombre" value="{{persona.nombre}}" readonly>
+            <input type="text" name="apellido" value="{{persona.apellido}}" readonly>
+            <input type="text" name="edad" value="{{persona.edad}}" readonly>
+            <input type="text" name="telefono" value="{{persona.telefono}}" readonly>
+        </form>
+    {% endfor %}
+    <h2>Personas con el Apellido Rincon</h2>
+    {% for persona in busqueda_apellido %}
+        <form class="registros" action="/editar_persona/{{ persona.id }}" method="post">
+            <input type="text" name="id" value="{{persona.id}}" readonly>
+            <input type="text" name="nombre" value="{{persona.nombre}}" readonly>
+            <input type="text" name="apellido" value="{{persona.apellido}}" readonly>
+            <input type="text" name="edad" value="{{persona.edad}}" readonly>
+            <input type="text" name="telefono" value="{{persona.telefono}}" readonly>
+        </form>
+    {% endfor %}
+    <h2>Personas con rango de edad entre 1 y 18 años</h2>
+    {% for persona in rangos %}
+        <form class="registros">
+            <input type="text" name="id" value="{{persona.id}}" readonly>
+            <input type="text" name="nombre" value="{{persona.nombre}}" readonly>
+            <input type="text" name="apellido" value="{{persona.apellido}}" readonly>
+            <input type="text" name="edad" value="{{persona.edad}}" readonly>
+            <input type="text" name="telefono" value="{{persona.telefono}}" readonly>
+        </form>
+    {% endfor %}
+    <h2>Personas que su nombre inicia con J</h2>
+    {% for persona in letra %}
+        <form class="registros">
+            <input type="text" name="id" value="{{persona.id}}" readonly>
+            <input type="text" name="nombre" value="{{persona.nombre}}" readonly>
+            <input type="text" name="apellido" value="{{persona.apellido}}" readonly>
+            <input type="text" name="edad" value="{{persona.edad}}" readonly>
+            <input type="text" name="telefono" value="{{persona.telefono}}" readonly>
+        </form>
+    {% endfor %}
+    <h2>Limite de registros visualizados a solo 3</h2>
+    {% for persona in limitar %}
+        <form class="registros">
+            <input type="text" name="id" value="{{persona.id}}" readonly>
+            <input type="text" name="nombre" value="{{persona.nombre}}" readonly>
+            <input type="text" name="apellido" value="{{persona.apellido}}" readonly>
+            <input type="text" name="edad" value="{{persona.edad}}" readonly>
+            <input type="text" name="telefono" value="{{persona.telefono}}" readonly>
+        </form>
+    {% endfor %}
+</body>
+</html>
